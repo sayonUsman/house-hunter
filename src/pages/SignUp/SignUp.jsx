@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const [role, setRole] = useState("");
@@ -8,6 +9,7 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -17,12 +19,42 @@ const SignUp = () => {
 
   const onSubmit = (newUserData) => {
     setErrorMessage("");
+
     if (role === "") {
       setErrorMessage("Please Select Your Role");
       return;
-    }
+    } else {
+      const newUser = {
+        name: newUserData.name,
+        email: newUserData.email,
+        phone: newUserData.phone,
+        password: newUserData.password,
+        role: role,
+      };
 
-    console.log(newUserData, role);
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data._id) {
+            reset();
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Welcome.",
+              text: "Your account has been created successfully.",
+              showConfirmButton: true,
+              timer: 2000,
+            });
+          }
+        })
+        .catch((error) => {
+          setErrorMessage(error.message);
+        });
+    }
   };
 
   return (
@@ -33,7 +65,6 @@ const SignUp = () => {
             <select
               onChange={(event) => manageRole(event)}
               className="select select-bordered w-full"
-              required
             >
               <option disabled selected>
                 Kindly Select Your Role
