@@ -51,6 +51,10 @@ const SignUp = () => {
             navigate("/");
             window.location.reload(false);
           }
+
+          if (data.isEmailRegistered) {
+            setErrorMessage("This email is already registered");
+          }
         })
         .catch((error) => {
           setErrorMessage(error.message);
