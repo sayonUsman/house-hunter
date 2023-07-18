@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -12,26 +14,26 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (user) => {
     setErrorMessage("");
 
     fetch("http://localhost:5000/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((date) => {
-        if (date.isLoginSuccess) {
+      .then((data) => {
+        if (data.isLoginSuccess) {
+          const userInfo = {
+            isLoginSuccess: true,
+            role: data.role,
+          };
+
+          localStorage.setItem("user-info", JSON.stringify(userInfo));
           reset();
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Welcome Back.",
-            text: "Logged in has been done successfully.",
-            showConfirmButton: true,
-            timer: 2000,
-          });
+          navigate(from, { replace: true });
+          window.location.reload(false);
         } else {
           setErrorMessage("Authentication failed");
         }
@@ -39,9 +41,9 @@ const Login = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="card flex-shrink-0 w-72 sm:w-96 shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-72 sm:w-96 shadow-md shadow-zinc-900">
           <div className="card-body">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">

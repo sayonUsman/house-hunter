@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [role, setRole] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const {
     register,
@@ -32,7 +33,7 @@ const SignUp = () => {
         role: role,
       };
 
-      fetch("http://localhost:5000/users", {
+      fetch("http://localhost:5000/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newUser),
@@ -40,15 +41,15 @@ const SignUp = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data._id) {
+            const userInfo = {
+              isLoginSuccess: true,
+              role: data.role,
+            };
+
+            localStorage.setItem("user-info", JSON.stringify(userInfo));
             reset();
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Welcome.",
-              text: "Your account has been created successfully.",
-              showConfirmButton: true,
-              timer: 2000,
-            });
+            navigate("/");
+            window.location.reload(false);
           }
         })
         .catch((error) => {
@@ -58,9 +59,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="card flex-shrink-0 w-72 sm:w-96 shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-72 sm:w-96 shadow-md shadow-zinc-900">
           <div className="card-body">
             <select
               onChange={(event) => manageRole(event)}
