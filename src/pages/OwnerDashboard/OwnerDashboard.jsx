@@ -24,7 +24,10 @@ const OwnerDashboard = () => {
   return (
     <div className="container mx-auto min-h-screen pt-24">
       <div className="flex justify-end mr-6">
-        <Link to="/addHouse" className="btn rounded-md btn-primary text-white">
+        <Link
+          to="/addHouse"
+          className="btn rounded-md bg-white text-black shadow-md shadow-purple-500"
+        >
           Add New House
         </Link>
       </div>

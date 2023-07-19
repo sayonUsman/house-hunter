@@ -281,7 +281,7 @@ const AddHouse = () => {
                   type="submit"
                   id="submit"
                   value="Add House"
-                  className="w-48 btn btn-primary text-white"
+                  className="w-48 btn rounded-md bg-white text-black shadow-md shadow-purple-500"
                 />
               </div>
             </div>

@@ -179,7 +179,7 @@ const SignUp = () => {
                 <input
                   type="submit"
                   value="Sign Up"
-                  className="btn btn-primary"
+                  className="btn rounded-md bg-white text-black shadow-md shadow-purple-500"
                 />
               </div>
             </form>
