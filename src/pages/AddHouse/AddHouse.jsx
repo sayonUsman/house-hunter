@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const AddHouse = () => {
+  const [message, setMessage] = useState("");
   const {
     register,
     handleSubmit,
@@ -37,7 +39,7 @@ const AddHouse = () => {
       .then((data) => {
         if (data._id) {
           reset();
-          window.location.reload(false);
+          setMessage("House is added successfully");
         }
       });
   };
@@ -286,6 +288,16 @@ const AddHouse = () => {
           </form>
         </div>
       </div>
+
+      {message && (
+        <div className="toast toast-end">
+          <div className="alert alert-success">
+            <div>
+              <span>{message}</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
