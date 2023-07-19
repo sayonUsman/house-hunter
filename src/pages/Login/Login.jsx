@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+
   const {
     register,
     handleSubmit,
@@ -27,12 +26,17 @@ const Login = () => {
         if (data.isLoginSuccess) {
           const userInfo = {
             isLoginSuccess: true,
+            email: user.email,
             role: data.role,
           };
 
           localStorage.setItem("user-info", JSON.stringify(userInfo));
           reset();
-          navigate(from, { replace: true });
+
+          if (data.role === "House Owner") {
+            navigate("/owner-dashboard");
+          } else navigate("/renter-dashboard");
+
           window.location.reload(false);
         } else {
           setErrorMessage("Authentication failed");

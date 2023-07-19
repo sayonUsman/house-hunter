@@ -43,12 +43,17 @@ const SignUp = () => {
           if (data._id) {
             const userInfo = {
               isLoginSuccess: true,
+              email: data.email,
               role: data.role,
             };
 
             localStorage.setItem("user-info", JSON.stringify(userInfo));
             reset();
-            navigate("/");
+
+            if (data.role === "House Owner") {
+              navigate("/owner-dashboard");
+            } else navigate("/renter-dashboard");
+
             window.location.reload(false);
           }
 

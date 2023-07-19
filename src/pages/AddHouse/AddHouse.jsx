@@ -9,8 +9,13 @@ const AddHouse = () => {
   } = useForm();
 
   const onSubmit = (details) => {
+    let userInfo = localStorage.getItem("user-info");
+    userInfo = JSON.parse(userInfo);
+    const email = userInfo.email;
+
     const houseDetails = {
       ownerName: details.name,
+      email: email,
       address: details.address,
       city: details.city,
       phone: details.phone,
