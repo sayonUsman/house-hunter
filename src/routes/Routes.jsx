@@ -5,6 +5,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import AddHouse from "../pages/AddHouse/AddHouse";
 import OwnerDashboard from "../pages/OwnerDashboard/OwnerDashboard";
 import Home from "../pages/Home/Home";
+import RenterDashboard from "../pages/RenterDashboard/RenterDashboard";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/addHouse",
         element: <AddHouse></AddHouse>,
+      },
+      {
+        path: "/renter-dashboard",
+        element: <RenterDashboard></RenterDashboard>,
       },
     ],
   },
