@@ -30,7 +30,7 @@ const AddHouse = () => {
       description: details.description,
     };
 
-    fetch("http://localhost:5000/house-details", {
+    fetch("https://house-hunter-bice.vercel.app/house-details", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(houseDetails),

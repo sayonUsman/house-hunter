@@ -16,7 +16,7 @@ const Login = () => {
   const onSubmit = (user) => {
     setErrorMessage("");
 
-    fetch("http://localhost:5000/login", {
+    fetch("https://house-hunter-bice.vercel.app/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),

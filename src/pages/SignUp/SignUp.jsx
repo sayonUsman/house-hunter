@@ -33,7 +33,7 @@ const SignUp = () => {
         role: role,
       };
 
-      fetch("http://localhost:5000/signup", {
+      fetch("https://house-hunter-bice.vercel.app/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newUser),

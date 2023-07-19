@@ -9,7 +9,7 @@ const OwnerDashboard = () => {
   const email = userInfo.email;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/house-details/${email}`)
+    fetch(`https://house-hunter-bice.vercel.app/house-details/${email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length === 0) {

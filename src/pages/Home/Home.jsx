@@ -4,7 +4,7 @@ const Home = () => {
   const [houses, setHouses] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/house-details`)
+    fetch(`https://house-hunter-bice.vercel.app/house-details`)
       .then((res) => res.json())
       .then((data) => {
         setHouses(data);
