@@ -22,8 +22,8 @@ const OwnerDashboard = () => {
   }, [email]);
 
   return (
-    <div className="container mx-auto min-h-screen pt-24">
-      <div className="flex justify-end mr-6">
+    <div className="container mx-auto min-h-screen pt-16 lg:pt-24">
+      <div className="flex justify-end mr-3 lg:mr-6">
         <Link
           to="/addHouse"
           className="btn rounded-md bg-white text-black shadow-md shadow-purple-500"
@@ -33,7 +33,7 @@ const OwnerDashboard = () => {
       </div>
 
       <div className="overflow-x-auto">
-        <table className="table table-compact w-full mt-7">
+        <table className="table table-compact w-full mt-3">
           <thead>
             <tr>
               <th>Address</th>
