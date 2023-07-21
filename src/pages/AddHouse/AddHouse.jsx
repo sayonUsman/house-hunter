@@ -46,10 +46,10 @@ const AddHouse = () => {
 
   return (
     <div className="hero min-h-screen">
-      <div className="card">
+      <div className="card rounded-md shadow-md shadow-sky-500 mt-16 md:mt-20 mb-4">
         <div className="card-body">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex flex-col lg:flex-row mt-7 sm:mt-10">
+            <div className="flex flex-col lg:flex-row">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-semibold">Owner Name</span>
