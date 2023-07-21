@@ -1,25 +1,35 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useHouses from "../../hooks/useHouses";
+import Swal from "sweetalert2";
 
 const OwnerDashboard = () => {
-  let userInfo = localStorage.getItem("user-info");
-  userInfo = JSON.parse(userInfo);
-  const [myHouses, setMyHouses] = useState([]);
-  const [message, setMessage] = useState("");
-  const email = userInfo.email;
+  const [myHouses, refetch] = useHouses();
 
-  useEffect(() => {
-    fetch(`https://house-hunter-bice.vercel.app/house-details/${email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.length === 0) {
-          setMessage("You have no house to view in the list.");
-        } else {
-          setMyHouses(data);
-          setMessage("");
-        }
-      });
-  }, [email]);
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/house-details/${id}`, {
+          method: "DELETE",
+        });
+
+        refetch();
+
+        Swal.fire(
+          "Deleted!",
+          "Your house info hava been deleted from database.",
+          "success"
+        );
+      }
+    });
+  };
 
   return (
     <div className="container mx-auto min-h-screen pt-16 lg:pt-24">
@@ -56,7 +66,12 @@ const OwnerDashboard = () => {
                   <td className="link link-hover">Update</td>
 
                   <td>
-                    <button className="link link-hover">Delete</button>
+                    <button
+                      className="link link-hover"
+                      onClick={() => handleDelete(house._id)}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -64,11 +79,11 @@ const OwnerDashboard = () => {
         </table>
       </div>
 
-      {message && (
+      {!myHouses && (
         <div className="toast toast-end">
           <div className="alert alert-info">
             <div>
-              <span>{message}</span>
+              <span>{"You have no house to view in the list."}</span>
             </div>
           </div>
         </div>
