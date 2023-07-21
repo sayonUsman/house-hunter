@@ -6,6 +6,7 @@ import AddHouse from "../pages/AddHouse/AddHouse";
 import OwnerDashboard from "../pages/OwnerDashboard/OwnerDashboard";
 import Home from "../pages/Home/Home";
 import RenterDashboard from "../pages/RenterDashboard/RenterDashboard";
+import Details from "../pages/Details/Details";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/details/:id",
+        element: <Details></Details>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/house-details/${params.id}`),
       },
       {
         path: "/login",
