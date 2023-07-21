@@ -47,7 +47,7 @@ const Login = () => {
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="card flex-shrink-0 w-72 sm:w-96 shadow-md shadow-zinc-900">
+        <div className="card flex-shrink-0 w-72 sm:w-96 shadow-md shadow-sky-500">
           <div className="card-body">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
