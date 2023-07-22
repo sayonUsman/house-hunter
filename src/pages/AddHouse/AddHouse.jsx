@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const AddHouse = () => {
   const [message, setMessage] = useState("");
@@ -41,7 +42,12 @@ const AddHouse = () => {
       .then((data) => {
         if (data._id) {
           reset();
-          setMessage("House details are added successfully.");
+          setMessage("");
+          Swal.fire(
+            "Great!",
+            "Your house details have been saved to database.",
+            "success"
+          );
         }
       });
   };
