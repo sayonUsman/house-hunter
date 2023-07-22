@@ -7,6 +7,7 @@ import OwnerDashboard from "../pages/OwnerDashboard/OwnerDashboard";
 import Home from "../pages/Home/Home";
 import RenterDashboard from "../pages/RenterDashboard/RenterDashboard";
 import Details from "../pages/Details/Details";
+import UpdateHouseDetails from "../pages/UpdateHouseDetails/UpdateHouseDetails";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,12 @@ const router = createBrowserRouter([
       {
         path: "/addHouse",
         element: <AddHouse></AddHouse>,
+      },
+      {
+        path: "/updateHouseDetails/:id",
+        element: <UpdateHouseDetails></UpdateHouseDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/house-details/${params.id}`),
       },
       {
         path: "/renter-dashboard",

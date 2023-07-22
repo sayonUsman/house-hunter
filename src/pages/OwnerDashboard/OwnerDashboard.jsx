@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import useHouses from "../../hooks/useHouses";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const OwnerDashboard = () => {
   const [myHouses, refetch] = useHouses();
+  const [message, setMessage] = useState("");
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -16,17 +18,23 @@ const OwnerDashboard = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
+        setMessage("Please wait...");
+
         fetch(`http://localhost:5000/house-details/${id}`, {
           method: "DELETE",
-        });
-
-        refetch();
-
-        Swal.fire(
-          "Deleted!",
-          "Your house info hava been deleted from database.",
-          "success"
-        );
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.acknowledged) {
+              refetch();
+              setMessage("");
+              Swal.fire(
+                "Deleted!",
+                "Your house info hava been deleted from database.",
+                "success"
+              );
+            }
+          });
       }
     });
   };
@@ -63,7 +71,9 @@ const OwnerDashboard = () => {
                   <td>{house.city}</td>
                   <td>{`${house.rent} BDT`}</td>
                   <td>{house.phone}</td>
-                  <td className="link link-hover">Update</td>
+                  <td className="link link-hover">
+                    <Link to={`/updateHouseDetails/${house._id}`}>Edit</Link>
+                  </td>
 
                   <td>
                     <button
@@ -84,6 +94,16 @@ const OwnerDashboard = () => {
           <div className="alert alert-info">
             <div>
               <span>{"You have no house to view in the list."}</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {message && (
+        <div className="toast toast-end">
+          <div className="alert alert-info">
+            <div>
+              <span>{message}</span>
             </div>
           </div>
         </div>
