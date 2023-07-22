@@ -7,7 +7,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/house-details`)
+    fetch(`http://localhost:5000/houses-details`)
       .then((res) => res.json())
       .then((data) => {
         setHouses(data);
@@ -37,15 +37,15 @@ const Home = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 md:gap-7 lg:mx-7 pt-10 lg:pt-14 pb-7">
+    <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 xl:mx-20 2xl:mx-6 pt-10 lg:pt-14 pb-7">
       {houses.map((house) => (
         <div className="flex mx-auto" key={house._id}>
-          <div className="w-[475px] lg:w-full card rounded-lg shadow-md shadow-sky-500 mx-7 mt-7 sm:mt-9">
+          <div className="sm:w-[475px] lg:w-[445px] xl:w-[475px] card rounded-lg shadow-md shadow-sky-500 mx-4 sm:mx-7 2xl:mx-0 mt-7 sm:mt-9">
             <figure className="p-3">
               <img
                 src={house.url}
                 alt="House Image"
-                className="lg:w-[625px] h-72 rounded-lg"
+                className="sm:h-72 rounded-lg"
               />
             </figure>
 
