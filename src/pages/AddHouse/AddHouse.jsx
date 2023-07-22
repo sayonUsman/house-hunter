@@ -11,6 +11,8 @@ const AddHouse = () => {
   } = useForm();
 
   const onSubmit = (details) => {
+    setMessage("Please wait...");
+
     let userInfo = localStorage.getItem("user-info");
     userInfo = JSON.parse(userInfo);
     const email = userInfo.email;
@@ -39,7 +41,7 @@ const AddHouse = () => {
       .then((data) => {
         if (data._id) {
           reset();
-          setMessage("House is added successfully");
+          setMessage("House details are added successfully.");
         }
       });
   };
@@ -291,7 +293,7 @@ const AddHouse = () => {
 
       {message && (
         <div className="toast toast-end">
-          <div className="alert alert-success">
+          <div className="alert alert-info">
             <div>
               <span>{message}</span>
             </div>
