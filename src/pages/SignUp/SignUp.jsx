@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [role, setRole] = useState("");
+  const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
@@ -19,6 +20,7 @@ const SignUp = () => {
   };
 
   const onSubmit = (newUserData) => {
+    setMessage("Please wait...");
     setErrorMessage("");
 
     if (role === "") {
@@ -55,6 +57,7 @@ const SignUp = () => {
             } else navigate("/renter-dashboard");
 
             window.location.reload(false);
+            setMessage("");
           }
 
           if (data.isEmailRegistered) {
@@ -186,6 +189,16 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+
+      {message && (
+        <div className="toast toast-end">
+          <div className="alert alert-info">
+            <div>
+              <span>{message}</span>
+            </div>
+          </div>
+        </div>
+      )}
 
       {errorMessage && (
         <div className="toast toast-end">

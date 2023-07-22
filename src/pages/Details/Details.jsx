@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Details = () => {
   const details = useLoaderData();
-  console.log(details);
+
   return (
     <div className="hero min-h-screen">
       <div className="hero-content text-center">

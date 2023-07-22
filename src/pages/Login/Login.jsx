@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
@@ -14,6 +15,7 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (user) => {
+    setMessage("Please wait...");
     setErrorMessage("");
 
     fetch("https://house-hunter-bice.vercel.app/login", {
@@ -38,6 +40,7 @@ const Login = () => {
           } else navigate("/renter-dashboard");
 
           window.location.reload(false);
+          setMessage("");
         } else {
           setErrorMessage("Authentication failed");
         }
@@ -108,6 +111,16 @@ const Login = () => {
           </div>
         </div>
       </div>
+
+      {message && (
+        <div className="toast toast-end">
+          <div className="alert alert-info">
+            <div>
+              <span>{message}</span>
+            </div>
+          </div>
+        </div>
+      )}
 
       {errorMessage && (
         <div className="toast toast-end">
