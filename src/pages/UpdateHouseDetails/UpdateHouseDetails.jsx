@@ -2,11 +2,14 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import Message from "../../components/Message";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const UpdateHouseDetails = () => {
   const details = useLoaderData();
   const params = useParams();
   const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const {
     register,
@@ -52,6 +55,10 @@ const UpdateHouseDetails = () => {
             "success"
           );
         }
+      })
+      .catch((error) => {
+        setMessage("");
+        setErrorMessage(error.message);
       });
   };
 
@@ -244,14 +251,10 @@ const UpdateHouseDetails = () => {
         </div>
       </div>
 
-      {message && (
-        <div className="toast toast-end">
-          <div className="alert alert-info">
-            <div>
-              <span>{message}</span>
-            </div>
-          </div>
-        </div>
+      {message && <Message message={message}> </Message>}
+
+      {errorMessage && (
+        <ErrorMessage errorMessage={errorMessage}></ErrorMessage>
       )}
     </div>
   );

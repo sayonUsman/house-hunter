@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import Message from "../../components/Message";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const Details = () => {
   const details = useLoaderData();
@@ -37,6 +39,10 @@ const Details = () => {
           setMessage("");
           setErrorMessage("The house has already booked!");
         }
+      })
+      .catch((error) => {
+        setMessage("");
+        setErrorMessage(error.message);
       });
   };
 
@@ -78,24 +84,10 @@ const Details = () => {
         </div>
       </div>
 
-      {message && (
-        <div className="toast toast-end">
-          <div className="alert alert-info">
-            <div>
-              <span>{message}</span>
-            </div>
-          </div>
-        </div>
-      )}
+      {message && <Message message={message}></Message>}
 
       {errorMessage && (
-        <div className="toast toast-end">
-          <div className="alert alert-error">
-            <div>
-              <span>{errorMessage}</span>
-            </div>
-          </div>
-        </div>
+        <ErrorMessage errorMessage={errorMessage}></ErrorMessage>
       )}
     </div>
   );

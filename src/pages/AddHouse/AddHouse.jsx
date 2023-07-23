@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import Message from "../../components/Message";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const AddHouse = () => {
   const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const {
     register,
     handleSubmit,
@@ -49,6 +52,10 @@ const AddHouse = () => {
             "success"
           );
         }
+      })
+      .catch((error) => {
+        setMessage("");
+        setErrorMessage(error.message);
       });
   };
 
@@ -297,14 +304,10 @@ const AddHouse = () => {
         </div>
       </div>
 
-      {message && (
-        <div className="toast toast-end">
-          <div className="alert alert-info">
-            <div>
-              <span>{message}</span>
-            </div>
-          </div>
-        </div>
+      {message && <Message message={message}></Message>}
+
+      {errorMessage && (
+        <ErrorMessage errorMessage={errorMessage}></ErrorMessage>
       )}
     </div>
   );

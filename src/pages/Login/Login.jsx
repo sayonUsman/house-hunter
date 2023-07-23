@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import Message from "../../components/Message";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const Login = () => {
   const [message, setMessage] = useState("");
@@ -15,8 +17,8 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (user) => {
-    setMessage("Please wait...");
     setErrorMessage("");
+    setMessage("Please wait...");
 
     fetch("https://house-hunter-bice.vercel.app/login", {
       method: "POST",
@@ -42,8 +44,13 @@ const Login = () => {
           window.location.reload(false);
           setMessage("");
         } else {
+          setMessage("");
           setErrorMessage("Authentication failed");
         }
+      })
+      .catch((error) => {
+        setMessage("");
+        setErrorMessage(error.message);
       });
   };
 
@@ -112,24 +119,10 @@ const Login = () => {
         </div>
       </div>
 
-      {message && (
-        <div className="toast toast-end">
-          <div className="alert alert-info">
-            <div>
-              <span>{message}</span>
-            </div>
-          </div>
-        </div>
-      )}
+      {message && <Message message={message}> </Message>}
 
       {errorMessage && (
-        <div className="toast toast-end">
-          <div className="alert alert-error">
-            <div>
-              <span>{errorMessage}</span>
-            </div>
-          </div>
-        </div>
+        <ErrorMessage errorMessage={errorMessage}></ErrorMessage>
       )}
     </div>
   );
