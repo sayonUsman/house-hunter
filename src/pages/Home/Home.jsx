@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 
 const Home = () => {
   const [houses, setHouses] = useState([]);
+  const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,7 +16,7 @@ const Home = () => {
       });
   }, []);
 
-  const openModal = (id) => {
+  const handleViewDetails = (id) => {
     let userInfo = localStorage.getItem("user-info");
 
     if (!userInfo) {
@@ -33,6 +35,55 @@ const Home = () => {
       });
     } else {
       navigate(`/details/${id}`);
+    }
+  };
+
+  const handleBooking = (id) => {
+    let userInfo = localStorage.getItem("user-info");
+
+    if (!userInfo) {
+      Swal.fire({
+        title: "Oops!",
+        text: "To ensure the booking kindly login your account.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
+    } else {
+      setErrorMessage("");
+      setMessage("Please wait...");
+      userInfo = JSON.parse(userInfo);
+      const email = userInfo.email;
+      const bookingInfo = {
+        houseId: id,
+        email: email,
+      };
+
+      fetch("http://localhost:5000/booked-house-details", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(bookingInfo),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data._id) {
+            setMessage("");
+            navigate("/renter-dashboard");
+            Swal.fire("Great!", "Your booking is confirmed", "success");
+          } else if (data.isMoreThanTwo) {
+            setMessage("");
+            setErrorMessage("You cannot book more than two booking!");
+          } else if (data.isHouseBooked) {
+            setMessage("");
+            setErrorMessage("The house has already booked!");
+          }
+        });
     }
   };
 
@@ -59,12 +110,15 @@ const Home = () => {
                 <div className="card-actions justify-end mt-7">
                   <button
                     className="btn rounded-md bg-white text-black shadow-md shadow-purple-500"
-                    onClick={() => openModal(house._id)}
+                    onClick={() => handleViewDetails(house._id)}
                   >
                     View Details
                   </button>
 
-                  <button className="btn rounded-md bg-white text-black shadow-md shadow-purple-500 ml-3">
+                  <button
+                    className="btn rounded-md bg-white text-black shadow-md shadow-purple-500 ml-3"
+                    onClick={() => handleBooking(house._id)}
+                  >
                     Book Now
                   </button>
                 </div>
@@ -73,6 +127,26 @@ const Home = () => {
           </div>
         </div>
       ))}
+
+      {message && (
+        <div className="toast toast-end">
+          <div className="alert alert-info">
+            <div>
+              <span>{message}</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {errorMessage && (
+        <div className="toast toast-end">
+          <div className="alert alert-error">
+            <div>
+              <span>{errorMessage}</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

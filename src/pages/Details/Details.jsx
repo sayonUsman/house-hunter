@@ -1,7 +1,44 @@
-import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Details = () => {
   const details = useLoaderData();
+  const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
+
+  const handleBooking = (id) => {
+    let userInfo = localStorage.getItem("user-info");
+    setErrorMessage("");
+    setMessage("Please wait...");
+    userInfo = JSON.parse(userInfo);
+    const email = userInfo.email;
+    const bookingInfo = {
+      houseId: id,
+      email: email,
+    };
+
+    fetch("http://localhost:5000/booked-house-details", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bookingInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data._id) {
+          setMessage("");
+          navigate("/renter-dashboard");
+          Swal.fire("Great!", "Your booking is confirmed", "success");
+        } else if (data.isMoreThanTwo) {
+          setMessage("");
+          setErrorMessage("You cannot book more than two booking!");
+        } else if (data.isHouseBooked) {
+          setMessage("");
+          setErrorMessage("The house has already booked!");
+        }
+      });
+  };
 
   return (
     <div className="hero min-h-screen">
@@ -29,7 +66,10 @@ const Details = () => {
               </span>
 
               <div className="card-actions justify-end mt-7">
-                <button className="btn rounded-md bg-white text-black shadow-md shadow-purple-500 ml-3">
+                <button
+                  className="btn rounded-md bg-white text-black shadow-md shadow-purple-500 ml-3"
+                  onClick={() => handleBooking(details[0]._id)}
+                >
                   Book Now
                 </button>
               </div>
@@ -37,6 +77,26 @@ const Details = () => {
           </div>
         </div>
       </div>
+
+      {message && (
+        <div className="toast toast-end">
+          <div className="alert alert-info">
+            <div>
+              <span>{message}</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {errorMessage && (
+        <div className="toast toast-end">
+          <div className="alert alert-error">
+            <div>
+              <span>{errorMessage}</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
