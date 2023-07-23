@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         path: "/details/:id",
         element: <Details></Details>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/house-details/${params.id}`),
+          fetch(`https://house-hunter.cyclic.app/house-details/${params.id}`),
       },
       {
         path: "/login",
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         path: "/updateHouseDetails/:id",
         element: <UpdateHouseDetails></UpdateHouseDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/house-details/${params.id}`),
+          fetch(`https://house-hunter.cyclic.app/house-details/${params.id}`),
       },
       {
         path: "/renter-dashboard",

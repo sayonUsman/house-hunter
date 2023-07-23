@@ -36,7 +36,7 @@ const AddHouse = () => {
       description: details.description,
     };
 
-    fetch("https://house-hunter-bice.vercel.app/house-details", {
+    fetch("https://house-hunter.cyclic.app/house-details", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(houseDetails),

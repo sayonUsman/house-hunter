@@ -37,7 +37,7 @@ const SignUp = () => {
         role: role,
       };
 
-      fetch("https://house-hunter-bice.vercel.app/signup", {
+      fetch("https://house-hunter.cyclic.app/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newUser),

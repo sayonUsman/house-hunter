@@ -21,7 +21,7 @@ const Details = () => {
       email: email,
     };
 
-    fetch("http://localhost:5000/booked-house-details", {
+    fetch("https://house-hunter.cyclic.app/booked-house-details", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(bookingInfo),

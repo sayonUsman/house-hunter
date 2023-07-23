@@ -23,7 +23,7 @@ const OwnerDashboard = () => {
       if (result.isConfirmed) {
         setMessage("Please wait...");
 
-        fetch(`http://localhost:5000/house-details/${id}`, {
+        fetch(`https://house-hunter.cyclic.app/house-details/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

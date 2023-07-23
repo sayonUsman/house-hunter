@@ -20,7 +20,7 @@ const Login = () => {
     setErrorMessage("");
     setMessage("Please wait...");
 
-    fetch("https://house-hunter-bice.vercel.app/login", {
+    fetch("https://house-hunter.cyclic.app/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),

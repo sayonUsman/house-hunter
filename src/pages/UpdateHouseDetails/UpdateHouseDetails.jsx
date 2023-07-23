@@ -39,7 +39,7 @@ const UpdateHouseDetails = () => {
       description: details.description,
     };
 
-    fetch(`http://localhost:5000/house-details/${params.id}`, {
+    fetch(`https://house-hunter.cyclic.app/house-details/${params.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(houseDetails),

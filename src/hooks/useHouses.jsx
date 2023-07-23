@@ -9,7 +9,9 @@ const useHouses = () => {
     queryKey: ["houses-details", email],
 
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/houses-details/${email}`);
+      const res = await fetch(
+        `https://house-hunter.cyclic.app/houses-details/${email}`
+      );
       return res.json();
     },
   });
