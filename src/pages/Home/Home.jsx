@@ -9,6 +9,8 @@ const Home = () => {
   const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  let userInfo = localStorage.getItem("user-info");
+  userInfo = JSON.parse(userInfo);
 
   useEffect(() => {
     fetch(`https://house-hunter.cyclic.app/houses-details`)
@@ -23,8 +25,6 @@ const Home = () => {
   }, []);
 
   const handleViewDetails = (id) => {
-    let userInfo = localStorage.getItem("user-info");
-
     if (!userInfo) {
       Swal.fire({
         title: "Oops!",
@@ -45,7 +45,7 @@ const Home = () => {
   };
 
   const handleBooking = (id) => {
-    let userInfo = localStorage.getItem("user-info");
+    setErrorMessage("");
 
     if (!userInfo) {
       Swal.fire({
@@ -61,10 +61,10 @@ const Home = () => {
           navigate("/login");
         }
       });
+    } else if (userInfo.role === "House Owner") {
+      setErrorMessage("You cannot book the house as an owner!");
     } else {
-      setErrorMessage("");
       setMessage("Please wait...");
-      userInfo = JSON.parse(userInfo);
       const email = userInfo.email;
       const bookingInfo = {
         houseId: id,

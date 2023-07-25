@@ -12,38 +12,43 @@ const Details = () => {
 
   const handleBooking = (id) => {
     let userInfo = localStorage.getItem("user-info");
-    setErrorMessage("");
-    setMessage("Please wait...");
     userInfo = JSON.parse(userInfo);
-    const email = userInfo.email;
-    const bookingInfo = {
-      houseId: id,
-      email: email,
-    };
+    setErrorMessage("");
 
-    fetch("https://house-hunter.cyclic.app/booked-house-details", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(bookingInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data._id) {
-          setMessage("");
-          navigate("/renter-dashboard");
-          Swal.fire("Great!", "Your booking is confirmed", "success");
-        } else if (data.isMoreThanTwo) {
-          setMessage("");
-          setErrorMessage("You cannot book more than two booking!");
-        } else if (data.isHouseBooked) {
-          setMessage("");
-          setErrorMessage("The house has already booked!");
-        }
+    if (userInfo.role === "House Owner") {
+      setErrorMessage("You cannot book the house as an owner!");
+    } else {
+      setMessage("Please wait...");
+      const email = userInfo.email;
+      const bookingInfo = {
+        houseId: id,
+        email: email,
+      };
+
+      fetch("https://house-hunter.cyclic.app/booked-house-details", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(bookingInfo),
       })
-      .catch((error) => {
-        setMessage("");
-        setErrorMessage(error.message);
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          if (data._id) {
+            setMessage("");
+            navigate("/renter-dashboard");
+            Swal.fire("Great!", "Your booking is confirmed", "success");
+          } else if (data.isMoreThanTwo) {
+            setMessage("");
+            setErrorMessage("You cannot book more than two booking!");
+          } else if (data.isHouseBooked) {
+            setMessage("");
+            setErrorMessage("The house has already booked!");
+          }
+        })
+        .catch((error) => {
+          setMessage("");
+          setErrorMessage(error.message);
+        });
+    }
   };
 
   return (
