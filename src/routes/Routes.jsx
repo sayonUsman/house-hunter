@@ -8,6 +8,8 @@ import Home from "../pages/Home/Home";
 import RenterDashboard from "../pages/RenterDashboard/RenterDashboard";
 import Details from "../pages/Details/Details";
 import UpdateHouseDetails from "../pages/UpdateHouseDetails/UpdateHouseDetails";
+import OwnerRoute from "../privateRoutes/OwnerRoute";
+import RenterRoute from "../privateRoutes/RenterRoute";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +36,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/owner-dashboard",
-        element: <OwnerDashboard></OwnerDashboard>,
+        element: (
+          <OwnerRoute>
+            <OwnerDashboard></OwnerDashboard>
+          </OwnerRoute>
+        ),
       },
       {
         path: "/addHouse",
@@ -48,7 +54,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/renter-dashboard",
-        element: <RenterDashboard></RenterDashboard>,
+        element: (
+          <RenterRoute>
+            <RenterDashboard></RenterDashboard>
+          </RenterRoute>
+        ),
       },
     ],
   },
