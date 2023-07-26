@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Message from "../../components/Message";
 import ErrorMessage from "../../components/ErrorMessage";
+import moment from "moment/moment";
 
 const Details = () => {
   const details = useLoaderData();
@@ -10,7 +11,7 @@ const Details = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  const handleBooking = (id) => {
+  const handleBooking = (house) => {
     let userInfo = localStorage.getItem("user-info");
     userInfo = JSON.parse(userInfo);
     setErrorMessage("");
@@ -21,8 +22,13 @@ const Details = () => {
       setMessage("Please wait...");
       const email = userInfo.email;
       const bookingInfo = {
-        houseId: id,
         email: email,
+        houseId: house._id,
+        houseAddress: house.address,
+        ownerName: house.ownerName,
+        ownerPhone: house.phone,
+        rent: house.rent,
+        bookingDate: moment().format("LL"),
       };
 
       fetch("https://house-hunter.cyclic.app/booked-house-details", {
@@ -79,7 +85,7 @@ const Details = () => {
               <div className="card-actions justify-end mt-7">
                 <button
                   className="btn rounded-md bg-white text-black shadow-md shadow-purple-500 ml-3"
-                  onClick={() => handleBooking(details[0]._id)}
+                  onClick={() => handleBooking(details[0])}
                 >
                   Book Now
                 </button>

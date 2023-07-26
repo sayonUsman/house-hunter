@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Message from "../../components/Message";
 import ErrorMessage from "../../components/ErrorMessage";
+import moment from "moment/moment";
 
 const Home = () => {
   const [houses, setHouses] = useState([]);
@@ -44,7 +45,7 @@ const Home = () => {
     }
   };
 
-  const handleBooking = (id) => {
+  const handleBooking = (house) => {
     setErrorMessage("");
 
     if (!userInfo) {
@@ -67,8 +68,13 @@ const Home = () => {
       setMessage("Please wait...");
       const email = userInfo.email;
       const bookingInfo = {
-        houseId: id,
         email: email,
+        houseId: house._id,
+        houseAddress: house.address,
+        ownerName: house.ownerName,
+        ownerPhone: house.phone,
+        rent: house.rent,
+        bookingDate: moment().format("LL"),
       };
 
       fetch("https://house-hunter.cyclic.app/booked-house-details", {
@@ -127,7 +133,7 @@ const Home = () => {
 
                   <button
                     className="btn rounded-md bg-white text-black shadow-md shadow-purple-500 ml-3"
-                    onClick={() => handleBooking(house._id)}
+                    onClick={() => handleBooking(house)}
                   >
                     Book Now
                   </button>

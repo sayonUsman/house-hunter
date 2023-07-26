@@ -33,7 +33,7 @@ const OwnerDashboard = () => {
               setMessage("");
               Swal.fire(
                 "Deleted!",
-                "Your house info hava been deleted from database.",
+                "Your house info have been deleted from database.",
                 "success"
               );
             }
@@ -47,7 +47,7 @@ const OwnerDashboard = () => {
   };
 
   return (
-    <div className="container mx-auto min-h-screen pt-16 lg:pt-24">
+    <div className="min-h-screen pt-16 lg:pt-24">
       <div className="flex justify-end mr-3 lg:mr-6">
         <Link
           to="/addHouse"
@@ -63,6 +63,7 @@ const OwnerDashboard = () => {
             <tr>
               <th>Address</th>
               <th>City</th>
+              <th>Availability Date</th>
               <th>Rent Per Month</th>
               <th>Phone Number</th>
               <th></th>
@@ -76,6 +77,7 @@ const OwnerDashboard = () => {
                 <tr>
                   <td>{house.address}</td>
                   <td>{house.city}</td>
+                  <td>{house.availabilityDate}</td>
                   <td>{`${house.rent} BDT`}</td>
                   <td>{house.phone}</td>
                   <td className="link link-hover">
@@ -97,10 +99,10 @@ const OwnerDashboard = () => {
       </div>
 
       {!myHouses && (
-        <div className="toast toast-end">
+        <div className="hidden sm:flex toast toast-end ">
           <div className="alert alert-info">
             <div>
-              <span>{"You have no house to view in the list."}</span>
+              <span>{"You have not added any house to give rent yet."}</span>
             </div>
           </div>
         </div>
