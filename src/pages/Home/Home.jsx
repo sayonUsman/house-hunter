@@ -4,9 +4,10 @@ import Swal from "sweetalert2";
 import Message from "../../components/Message";
 import ErrorMessage from "../../components/ErrorMessage";
 import moment from "moment/moment";
+import LoadingDots from "../../components/LoadingDots";
 
 const Home = () => {
-  const [houses, setHouses] = useState([]);
+  const [houses, setHouses] = useState(null);
   const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
@@ -104,52 +105,58 @@ const Home = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 xl:mx-20 2xl:mx-6 pt-10 lg:pt-14 pb-7">
-      {houses.map((house) => (
-        <div className="flex mx-auto" key={house._id}>
-          <div className="sm:w-[475px] lg:w-[445px] xl:w-[475px] card rounded-lg shadow-md shadow-sky-500 mx-4 sm:mx-7 2xl:mx-0 mt-7 sm:mt-9">
-            <figure className="p-3">
-              <img
-                src={house.url}
-                alt="House Image"
-                className="sm:h-72 rounded-lg"
-              />
-            </figure>
+    <>
+      {houses && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 xl:mx-20 2xl:mx-6 pt-10 lg:pt-14 pb-7">
+          {houses.map((house) => (
+            <div className="flex mx-auto" key={house._id}>
+              <div className="sm:w-[475px] lg:w-[445px] xl:w-[475px] card rounded-lg shadow-md shadow-sky-500 mx-4 sm:mx-7 2xl:mx-0 mt-7 sm:mt-9">
+                <figure className="p-3">
+                  <img
+                    src={house.url}
+                    alt="House Image"
+                    className="sm:h-72 rounded-lg"
+                  />
+                </figure>
 
-            <div className="card-body">
-              <span>
-                <p className="font-semibold mt-5">{`Location: ${house.address}`}</p>
-                <p className="font-semibold">{`Room Size: ${house.roomSize}`}</p>
-                <p className="font-semibold">{`Rent: ${house.rent} BDT`}</p>
-                <p className="font-semibold">{`Availability Date: ${house.availabilityDate}`}</p>
+                <div className="card-body">
+                  <span>
+                    <p className="font-semibold mt-5">{`Location: ${house.address}`}</p>
+                    <p className="font-semibold">{`Room Size: ${house.roomSize}`}</p>
+                    <p className="font-semibold">{`Rent: ${house.rent} BDT`}</p>
+                    <p className="font-semibold">{`Availability Date: ${house.availabilityDate}`}</p>
 
-                <div className="card-actions justify-end mt-7">
-                  <button
-                    className="btn rounded-md bg-white text-black shadow-md shadow-purple-500"
-                    onClick={() => handleViewDetails(house._id)}
-                  >
-                    View Details
-                  </button>
+                    <div className="card-actions justify-end mt-7">
+                      <button
+                        className="btn rounded-md bg-white text-black shadow-md shadow-purple-500"
+                        onClick={() => handleViewDetails(house._id)}
+                      >
+                        View Details
+                      </button>
 
-                  <button
-                    className="btn rounded-md bg-white text-black shadow-md shadow-purple-500 ml-3"
-                    onClick={() => handleBooking(house)}
-                  >
-                    Book Now
-                  </button>
+                      <button
+                        className="btn rounded-md bg-white text-black shadow-md shadow-purple-500 ml-3"
+                        onClick={() => handleBooking(house)}
+                      >
+                        Book Now
+                      </button>
+                    </div>
+                  </span>
                 </div>
-              </span>
+              </div>
             </div>
-          </div>
+          ))}
+
+          {message && <Message message={message}></Message>}
+
+          {errorMessage && (
+            <ErrorMessage errorMessage={errorMessage}></ErrorMessage>
+          )}
         </div>
-      ))}
-
-      {message && <Message message={message}></Message>}
-
-      {errorMessage && (
-        <ErrorMessage errorMessage={errorMessage}></ErrorMessage>
       )}
-    </div>
+
+      {!houses && <LoadingDots></LoadingDots>}
+    </>
   );
 };
 
