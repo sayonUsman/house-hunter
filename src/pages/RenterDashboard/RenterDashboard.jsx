@@ -71,8 +71,8 @@ const RenterDashboard = () => {
             </tr>
           </thead>
 
-          {bookedHouses &&
-            bookedHouses.map((house) => (
+          {!bookedHouses?.error &&
+            bookedHouses?.map((house) => (
               <tbody key={house._id}>
                 <tr>
                   <td>{house.houseAddress}</td>
@@ -108,9 +108,9 @@ const RenterDashboard = () => {
               ✕
             </button>
 
-            <h3 className="font-bold text-lg">{bookedHouses[0].renterName}</h3>
-            <p className="py-2">{`Email: ${bookedHouses[0].renterEmail}`}</p>
-            <p>{`Phone: ${bookedHouses[0].renterPhone}`}</p>
+            <h3 className="font-bold text-lg">{bookedHouses[0]?.renterName}</h3>
+            <p className="py-2">{`Email: ${bookedHouses[0]?.renterEmail}`}</p>
+            <p>{`Phone: ${bookedHouses[0]?.renterPhone}`}</p>
           </form>
         </dialog>
       )}
@@ -129,6 +129,10 @@ const RenterDashboard = () => {
 
       {errorMessage && (
         <ErrorMessage errorMessage={errorMessage}></ErrorMessage>
+      )}
+
+      {bookedHouses?.error && (
+        <ErrorMessage errorMessage={"Please login again!"}></ErrorMessage>
       )}
     </div>
   );

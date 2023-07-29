@@ -43,26 +43,36 @@ const SignUp = () => {
         body: JSON.stringify(newUser),
       })
         .then((res) => res.json())
-        .then((data) => {
-          if (data._id) {
-            const userInfo = {
-              isLoginSuccess: true,
-              email: data.email,
-              role: data.role,
-            };
+        .then((userData) => {
+          if (userData._id) {
+            fetch("https://house-hunter.cyclic.app/jwt", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ userEmail: userData.email }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                const userInfo = {
+                  isLoginSuccess: true,
+                  email: userData.email,
+                  role: userData.role,
+                  accessToken: data.token,
+                };
 
-            localStorage.setItem("user-info", JSON.stringify(userInfo));
-            reset();
+                localStorage.setItem("user-info", JSON.stringify(userInfo));
+                reset();
 
-            if (data.role === "House Owner") {
-              navigate("/owner-dashboard");
-            } else navigate("/renter-dashboard");
+                if (userData.role === "House Owner") {
+                  navigate("/owner-dashboard");
+                } else navigate("/renter-dashboard");
 
-            window.location.reload(false);
+                window.location.reload(false);
+              });
+
             setMessage("");
           }
 
-          if (data.isEmailRegistered) {
+          if (userData.isEmailRegistered) {
             setMessage("");
             setErrorMessage("This email is already registered");
           }

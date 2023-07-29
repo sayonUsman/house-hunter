@@ -6,7 +6,7 @@ import Message from "../../components/Message";
 import ErrorMessage from "../../components/ErrorMessage";
 
 const OwnerDashboard = () => {
-  const [myHouses, refetch] = useHouses();
+  const [data, refetch] = useHouses();
   const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -71,8 +71,8 @@ const OwnerDashboard = () => {
             </tr>
           </thead>
 
-          {myHouses &&
-            myHouses.map((house) => (
+          {!data?.error &&
+            data?.map((house) => (
               <tbody key={house._id}>
                 <tr>
                   <td>{house.address}</td>
@@ -98,7 +98,7 @@ const OwnerDashboard = () => {
         </table>
       </div>
 
-      {!myHouses && (
+      {!data && (
         <div className="hidden sm:flex toast toast-end ">
           <div className="alert alert-info">
             <div>
@@ -112,6 +112,10 @@ const OwnerDashboard = () => {
 
       {errorMessage && (
         <ErrorMessage errorMessage={errorMessage}></ErrorMessage>
+      )}
+
+      {data?.error && (
+        <ErrorMessage errorMessage={"Please login again!"}></ErrorMessage>
       )}
     </div>
   );

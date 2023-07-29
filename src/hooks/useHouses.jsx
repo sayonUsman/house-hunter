@@ -4,13 +4,19 @@ const useHouses = () => {
   let userInfo = localStorage.getItem("user-info");
   userInfo = JSON.parse(userInfo);
   const email = userInfo.email;
+  const userAccessToken = userInfo.accessToken;
 
   const { data, refetch } = useQuery({
     queryKey: ["houses-details", email],
 
     queryFn: async () => {
       const res = await fetch(
-        `https://house-hunter.cyclic.app/houses-details/${email}`
+        `https://house-hunter.cyclic.app/houses-details/${email}`,
+        {
+          headers: {
+            authorization: `Bearer ${userAccessToken}`,
+          },
+        }
       );
       return res.json();
     },
