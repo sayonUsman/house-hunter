@@ -5,6 +5,7 @@ import Message from "../../components/Message";
 import ErrorMessage from "../../components/ErrorMessage";
 import moment from "moment/moment";
 import LoadingDots from "../../components/LoadingDots";
+import Banner from "./Banner/Banner";
 
 const Home = () => {
   const [houses, setHouses] = useState(null);
@@ -106,6 +107,8 @@ const Home = () => {
 
   return (
     <>
+      <Banner></Banner>
+
       {houses && (
         <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 xl:mx-20 2xl:mx-6 pt-10 lg:pt-14 pb-7">
           {houses.map((house) => (
