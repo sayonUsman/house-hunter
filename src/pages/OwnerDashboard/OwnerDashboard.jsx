@@ -51,7 +51,7 @@ const OwnerDashboard = () => {
       <div className="flex justify-end mr-3 lg:mr-6">
         <Link
           to="/addHouse"
-          className="btn rounded-md bg-white text-black shadow-md shadow-purple-500"
+          className="btn rounded-md bg-[#2a303c] text-white border border-white"
         >
           Add New House
         </Link>

@@ -87,11 +87,11 @@ const SignUp = () => {
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="card flex-shrink-0 w-72 sm:w-96 shadow-md shadow-sky-500">
+        <div className="card glass flex-shrink-0 w-72 sm:w-96">
           <div className="card-body">
             <select
               onChange={(event) => manageRole(event)}
-              className="select select-bordered w-full"
+              className="select select-bordered w-full bg-gray-100 text-black"
             >
               <option disabled selected>
                 Kindly Select Your Role
@@ -109,12 +109,12 @@ const SignUp = () => {
                 <input
                   type="text"
                   placeholder="Full Name"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-100 text-black"
                   {...register("name", { required: true })}
                 />
 
                 {errors.name && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Full Name is required.
                   </span>
                 )}
@@ -128,12 +128,12 @@ const SignUp = () => {
                 <input
                   type="email"
                   placeholder="Email"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-100 text-black"
                   {...register("email", { required: true })}
                 />
 
                 {errors.email && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Email is required.
                   </span>
                 )}
@@ -147,7 +147,7 @@ const SignUp = () => {
                 <input
                   type="tel"
                   placeholder="+8801XXXXXXXXX"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-100 text-black"
                   {...register("phone", {
                     required: true,
                     pattern: /[+]{1}[8]{2}[0]{1}[1]{1}[0-9]{9}/,
@@ -155,13 +155,13 @@ const SignUp = () => {
                 />
 
                 {errors.phone?.type === "required" && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Phone number is required.
                   </span>
                 )}
 
                 {errors.phone?.type === "pattern" && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Only Bangladeshi phone numbers are allowed.
                   </span>
                 )}
@@ -175,18 +175,18 @@ const SignUp = () => {
                 <input
                   type="password"
                   placeholder="Password"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-100 text-black"
                   {...register("password", { required: true, minLength: 6 })}
                 />
 
                 {errors.password?.type === "required" && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Password is required.
                   </span>
                 )}
 
                 {errors.password?.type === "minLength" && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Password must be six characters.
                   </span>
                 )}
@@ -196,7 +196,7 @@ const SignUp = () => {
                 <input
                   type="submit"
                   value="Sign Up"
-                  className="btn rounded-md bg-white text-black shadow-md shadow-purple-500"
+                  className="btn rounded-md bg-[#2a303c] text-white border-none"
                 />
               </div>
             </form>

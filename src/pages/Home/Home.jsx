@@ -113,7 +113,7 @@ const Home = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 xl:mx-20 2xl:mx-6 pt-10 lg:pt-14 pb-7">
           {houses.map((house) => (
             <div className="flex mx-auto" key={house._id}>
-              <div className="sm:w-[475px] lg:w-[445px] xl:w-[475px] card rounded-lg shadow-md shadow-sky-500 mx-4 sm:mx-7 2xl:mx-0 mt-7 sm:mt-9">
+              <div className="sm:w-[475px] lg:w-[445px] xl:w-[475px] card glass rounded-lg mx-4 sm:mx-7 2xl:mx-0 mt-7 sm:mt-9">
                 <figure className="p-3">
                   <img
                     src={house.url}
@@ -131,14 +131,14 @@ const Home = () => {
 
                     <div className="card-actions justify-end mt-7">
                       <button
-                        className="btn rounded-md bg-white text-black shadow-md shadow-purple-500"
+                        className="btn rounded-md bg-[#2a303c] text-white border border-white"
                         onClick={() => handleViewDetails(house._id)}
                       >
                         View Details
                       </button>
 
                       <button
-                        className="btn rounded-md bg-white text-black shadow-md shadow-purple-500 ml-3"
+                        className="btn rounded-md bg-[#2a303c] text-white boder border-white ml-3"
                         onClick={() => handleBooking(house)}
                       >
                         Book Now

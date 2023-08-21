@@ -61,7 +61,7 @@ const AddHouse = () => {
 
   return (
     <div className="hero min-h-screen">
-      <div className="card rounded-md shadow-md shadow-sky-500 mt-16 md:mt-20 mb-4">
+      <div className="card glass rounded-md mt-16 md:mt-20 mb-4">
         <div className="card-body">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col lg:flex-row">
@@ -72,12 +72,12 @@ const AddHouse = () => {
 
                 <input
                   type="text"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   {...register("name", { required: true })}
                 />
 
                 {errors.name && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Owner Name is required.
                   </span>
                 )}
@@ -90,12 +90,12 @@ const AddHouse = () => {
 
                 <input
                   type="text"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   {...register("address", { required: true })}
                 />
 
                 {errors.address && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Address is required.
                   </span>
                 )}
@@ -110,12 +110,12 @@ const AddHouse = () => {
 
                 <input
                   type="text"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   {...register("city", { required: true })}
                 />
 
                 {errors.city && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     City is required.
                   </span>
                 )}
@@ -129,7 +129,7 @@ const AddHouse = () => {
                 <input
                   type="tel"
                   placeholder="+8801XXXXXXXXX"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   {...register("phone", {
                     required: true,
                     pattern: /[+]{1}[8]{2}[0]{1}[1]{1}[0-9]{9}/,
@@ -137,13 +137,13 @@ const AddHouse = () => {
                 />
 
                 {errors.phone?.type === "required" && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Phone number is required.
                   </span>
                 )}
 
                 {errors.phone?.type === "pattern" && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Only Bangladeshi phone numbers are allowed.
                   </span>
                 )}
@@ -159,12 +159,12 @@ const AddHouse = () => {
                 <input
                   type="number"
                   min="1"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   {...register("bedrooms", { required: true })}
                 />
 
                 {errors.bedrooms && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Bedrooms is required.
                   </span>
                 )}
@@ -178,12 +178,12 @@ const AddHouse = () => {
                 <input
                   type="number"
                   min="1"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   {...register("bathrooms", { required: true })}
                 />
 
                 {errors.bathrooms && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Bathrooms is required.
                   </span>
                 )}
@@ -198,12 +198,12 @@ const AddHouse = () => {
 
                 <input
                   type="text"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   {...register("roomSize", { required: true })}
                 />
 
                 {errors.roomSize && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Room size is required.
                   </span>
                 )}
@@ -218,12 +218,12 @@ const AddHouse = () => {
 
                 <input
                   type="url"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   {...register("url", { required: true })}
                 />
 
                 {errors.url && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     House picture url is required.
                   </span>
                 )}
@@ -240,12 +240,12 @@ const AddHouse = () => {
 
                 <input
                   type="date"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   {...register("date", { required: true })}
                 />
 
                 {errors.date && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Availability date is required.
                   </span>
                 )}
@@ -260,12 +260,12 @@ const AddHouse = () => {
 
                 <input
                   type="number"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   {...register("rent", { required: true })}
                 />
 
                 {errors.rent && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Rent is required.
                   </span>
                 )}
@@ -279,12 +279,12 @@ const AddHouse = () => {
 
               <textarea
                 rows="9"
-                className="rounded-lg border border-black pl-4 pt-2 pr-4 pb-2"
+                className="rounded-lg bg-gray-100 text-black pl-4 pt-2 pr-4 pb-2"
                 {...register("description", { required: true })}
               ></textarea>
 
               {errors.description && (
-                <span className="text-red-500 pt-1 pl-1">
+                <span className="text-white pt-1 pl-1">
                   Description is required.
                 </span>
               )}
@@ -296,7 +296,7 @@ const AddHouse = () => {
                   type="submit"
                   id="submit"
                   value="Add House"
-                  className="w-48 btn rounded-md bg-white text-black shadow-md shadow-purple-500"
+                  className="w-48 btn rounded-md bg-[#2a303c] text-white border border-white"
                 />
               </div>
             </div>

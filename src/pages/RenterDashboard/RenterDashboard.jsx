@@ -49,7 +49,7 @@ const RenterDashboard = () => {
     <div className="min-h-screen pt-16 lg:pt-24">
       <div className="flex justify-end mr-3 lg:mr-6">
         <button
-          className="btn rounded-md bg-white text-black shadow-md shadow-purple-500"
+          className="btn rounded-md bg-[#2a303c] text-white border border-white"
           onClick={() => window.profile.showModal()}
           disabled={!bookedHouses}
         >

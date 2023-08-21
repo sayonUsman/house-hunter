@@ -64,7 +64,7 @@ const UpdateHouseDetails = () => {
 
   return (
     <div className="hero min-h-screen">
-      <div className="card rounded-md shadow-md shadow-sky-500 mt-16 md:mt-20 mb-4">
+      <div className="card glass rounded-md mt-16 md:mt-20 mb-4">
         <div className="card-body">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col lg:flex-row">
@@ -75,7 +75,7 @@ const UpdateHouseDetails = () => {
 
                 <input
                   type="text"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   defaultValue={details[0].ownerName}
                   {...register("name")}
                 />
@@ -88,7 +88,7 @@ const UpdateHouseDetails = () => {
 
                 <input
                   type="text"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   defaultValue={details[0].address}
                   {...register("address")}
                 />
@@ -103,7 +103,7 @@ const UpdateHouseDetails = () => {
 
                 <input
                   type="text"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   defaultValue={details[0].city}
                   {...register("city")}
                 />
@@ -117,7 +117,7 @@ const UpdateHouseDetails = () => {
                 <input
                   type="tel"
                   placeholder="+8801XXXXXXXXX"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   defaultValue={details[0].phone}
                   {...register("phone", {
                     pattern: /[+]{1}[8]{2}[0]{1}[1]{1}[0-9]{9}/,
@@ -125,7 +125,7 @@ const UpdateHouseDetails = () => {
                 />
 
                 {errors.phone?.type === "pattern" && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Only Bangladeshi phone numbers are allowed.
                   </span>
                 )}
@@ -141,7 +141,7 @@ const UpdateHouseDetails = () => {
                 <input
                   type="number"
                   min="1"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   defaultValue={details[0].bedrooms}
                   {...register("bedrooms")}
                 />
@@ -155,7 +155,7 @@ const UpdateHouseDetails = () => {
                 <input
                   type="number"
                   min="1"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   defaultValue={details[0].bathrooms}
                   {...register("bathrooms")}
                 />
@@ -170,7 +170,7 @@ const UpdateHouseDetails = () => {
 
                 <input
                   type="text"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   defaultValue={details[0].roomSize}
                   {...register("roomSize")}
                 />
@@ -185,7 +185,7 @@ const UpdateHouseDetails = () => {
 
                 <input
                   type="url"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   defaultValue={details[0].url}
                   {...register("url")}
                 />
@@ -202,7 +202,7 @@ const UpdateHouseDetails = () => {
 
                 <input
                   type="date"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   defaultValue={details[0].availabilityDate}
                   {...register("date")}
                 />
@@ -217,7 +217,7 @@ const UpdateHouseDetails = () => {
 
                 <input
                   type="number"
-                  className="w-72 md:w-96 input input-bordered text-black border border-black"
+                  className="w-72 md:w-96 input input-bordered bg-gray-100 text-black"
                   defaultValue={details[0].rent}
                   {...register("rent")}
                 />
@@ -231,7 +231,7 @@ const UpdateHouseDetails = () => {
 
               <textarea
                 rows="9"
-                className="rounded-lg border border-black pl-4 pt-2 pr-4 pb-2"
+                className="rounded-lg bg-gray-100 text-black pl-4 pt-2 pr-4 pb-2"
                 defaultValue={details[0].description}
                 {...register("description")}
               ></textarea>
@@ -243,7 +243,7 @@ const UpdateHouseDetails = () => {
                   type="submit"
                   id="submit"
                   value="Update Details"
-                  className="w-48 btn rounded-md bg-white text-black shadow-md shadow-purple-500"
+                  className="w-48 btn rounded-md bg-[#2a303c] text-white border border-white"
                 />
               </div>
             </div>

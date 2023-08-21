@@ -60,7 +60,7 @@ const Details = () => {
   return (
     <div className="hero min-h-screen">
       <div className="hero-content text-center">
-        <div className="sm:w-9/12 card rounded-md shadow-md shadow-sky-500 mt-12 lg:mt-16">
+        <div className="sm:w-9/12 card glass rounded-md mt-12 lg:mt-16">
           <figure className="p-3">
             <img
               src={details[0].url}
@@ -84,7 +84,7 @@ const Details = () => {
 
               <div className="card-actions justify-end mt-7">
                 <button
-                  className="btn rounded-md bg-white text-black shadow-md shadow-purple-500 ml-3"
+                  className="btn rounded-md bg-[#2a303c] text-white border border-white ml-3"
                   onClick={() => handleBooking(details[0])}
                 >
                   Book Now

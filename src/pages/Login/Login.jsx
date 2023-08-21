@@ -67,7 +67,7 @@ const Login = () => {
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="card flex-shrink-0 w-72 sm:w-96 shadow-md shadow-sky-500">
+        <div className="card glass flex-shrink-0 w-72 sm:w-96">
           <div className="card-body">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
@@ -78,14 +78,12 @@ const Login = () => {
                 <input
                   type="email"
                   placeholder="Email"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-100 text-black"
                   {...register("email", { required: true })}
                 />
 
                 {errors.email && (
-                  <span className="text-red-500 pt-1 pl-1">
-                    Give your email.
-                  </span>
+                  <span className="text-white pt-1 pl-1">Give your email.</span>
                 )}
               </div>
 
@@ -97,12 +95,12 @@ const Login = () => {
                 <input
                   type="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-100 text-black"
                   {...register("password", { required: true })}
                 />
 
                 {errors.password && (
-                  <span className="text-red-500 pt-1 pl-1">
+                  <span className="text-white pt-1 pl-1">
                     Give your password.
                   </span>
                 )}
@@ -112,7 +110,7 @@ const Login = () => {
                 <input
                   type="submit"
                   value="Login"
-                  className="btn rounded-md bg-white text-black shadow-md shadow-purple-500"
+                  className="btn rounded-md bg-[#2a303c] text-white border-none"
                 />
               </div>
             </form>
