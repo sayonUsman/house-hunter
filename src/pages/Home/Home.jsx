@@ -6,6 +6,7 @@ import ErrorMessage from "../../components/ErrorMessage";
 import moment from "moment/moment";
 import LoadingDots from "../../components/LoadingDots";
 import Banner from "./Banner/Banner";
+import review from "../../assets/house-review.mp4";
 
 const Home = () => {
   const [houses, setHouses] = useState(null);
@@ -149,16 +150,25 @@ const Home = () => {
               </div>
             </div>
           ))}
-
-          {message && <Message message={message}></Message>}
-
-          {errorMessage && (
-            <ErrorMessage errorMessage={errorMessage}></ErrorMessage>
-          )}
         </div>
       )}
 
+      <video
+        controls
+        autoPlay
+        loop
+        className="shadow-inner shadow-zinc-900 xl:mb-9"
+      >
+        <source src={review} type="video/mp4" />
+      </video>
+
       {!houses && <LoadingDots></LoadingDots>}
+
+      {message && <Message message={message}></Message>}
+
+      {errorMessage && (
+        <ErrorMessage errorMessage={errorMessage}></ErrorMessage>
+      )}
     </>
   );
 };
