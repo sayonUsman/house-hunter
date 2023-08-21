@@ -8,6 +8,7 @@ import LoadingDots from "../../components/LoadingDots";
 import Banner from "./Banner/Banner";
 import review from "../../assets/house-review.mp4";
 import OfferCard from "./OfferCard/OfferCard";
+import SponsorLogo from "./SponsorLogo/SponsorLogo";
 
 const Home = () => {
   const [houses, setHouses] = useState(null);
@@ -110,6 +111,10 @@ const Home = () => {
   return (
     <>
       <Banner></Banner>
+
+      <h3 className="font-DM text-xl xl:text-3xl pl-1 py-4">Sponsored by</h3>
+
+      <SponsorLogo></SponsorLogo>
 
       <h1 className="font-DM text-3xl lg:text-5xl text-center">
         Available Houses
