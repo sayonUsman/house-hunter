@@ -10,6 +10,7 @@ import Details from "../pages/Details/Details";
 import UpdateHouseDetails from "../pages/UpdateHouseDetails/UpdateHouseDetails";
 import OwnerRoute from "../privateRoutes/OwnerRoute";
 import RenterRoute from "../privateRoutes/RenterRoute";
+import Houses from "../pages/Houses/Houses";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/houses",
+        element: <Houses></Houses>,
       },
       {
         path: "/details/:id",

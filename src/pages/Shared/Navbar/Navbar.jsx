@@ -24,6 +24,12 @@ const Navbar = () => {
         </NavLink>
       </li>
 
+      <li>
+        <NavLink to="/houses" className="mb-1 lg:mb-0 lg:mr-1 link link-hover">
+          Houses
+        </NavLink>
+      </li>
+
       {userInfo ? (
         <>
           {userInfo.role === "House Owner" && (
