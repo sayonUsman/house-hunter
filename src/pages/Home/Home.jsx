@@ -7,6 +7,7 @@ import moment from "moment/moment";
 import LoadingDots from "../../components/LoadingDots";
 import Banner from "./Banner/Banner";
 import review from "../../assets/house-review.mp4";
+import OfferCard from "./OfferCard/OfferCard";
 
 const Home = () => {
   const [houses, setHouses] = useState(null);
@@ -156,6 +157,8 @@ const Home = () => {
           ))}
         </div>
       )}
+
+      <OfferCard></OfferCard>
 
       <video controls autoPlay loop className="xl:mb-9">
         <source src={review} type="video/mp4" />
