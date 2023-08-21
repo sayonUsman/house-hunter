@@ -110,8 +110,12 @@ const Home = () => {
     <>
       <Banner></Banner>
 
+      <h1 className="font-DM text-3xl lg:text-5xl text-center">
+        Available Houses
+      </h1>
+
       {houses && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 xl:mx-20 2xl:mx-6 pt-10 lg:pt-14 pb-7">
+        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 xl:mx-20 2xl:mx-6 xl:pt-3 2xl:pt-5 pb-7">
           {houses.map((house) => (
             <div className="flex mx-auto" key={house._id}>
               <div className="sm:w-[475px] lg:w-[445px] xl:w-[475px] card glass rounded-lg mx-4 sm:mx-7 2xl:mx-0 mt-7 sm:mt-9">
@@ -153,12 +157,7 @@ const Home = () => {
         </div>
       )}
 
-      <video
-        controls
-        autoPlay
-        loop
-        className="shadow-inner shadow-zinc-900 xl:mb-9"
-      >
+      <video controls autoPlay loop className="xl:mb-9">
         <source src={review} type="video/mp4" />
       </video>
 
