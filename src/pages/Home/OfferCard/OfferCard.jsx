@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const OfferCard = () => {
   return (
     <div
@@ -9,9 +11,18 @@ const OfferCard = () => {
     >
       <div className="hero-overlay bg-opacity-40"></div>
       <div className="hero-content text-center">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-DM font-bold py-96">
-          Get 10% Off from Your First Booking
-        </h1>
+        <div className="py-96">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-DM font-bold">
+            Get 10% Off from Your First Booking
+          </h1>
+
+          <Link
+            to="/houses"
+            className="btn rounded-sm font-DM bg-white text-black hover:text-white border-none mt-4 xl:mt-5"
+          >
+            Book Now
+          </Link>
+        </div>
       </div>
     </div>
   );
