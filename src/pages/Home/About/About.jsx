@@ -18,7 +18,7 @@ const About = () => {
           Our mission is to become the leading real estate company by offering a
           wide range of properties for sale and rent, as well as high-quality
           services such as valuation, marketing, legal advice, and property
-          management. We aim to satisfy the needs and expectations of my
+          management. We aim to satisfy the needs and expectations of our
           clients, and to help them achieve their real estate goals.
         </p>
 
