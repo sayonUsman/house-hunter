@@ -1,6 +1,7 @@
 import About from "./About/About";
 import Banner from "./Banner/Banner";
 import OfferCard from "./OfferCard/OfferCard";
+import Services from "./Services/Services";
 import SponsorLogo from "./SponsorLogo/SponsorLogo";
 
 const Home = () => {
@@ -11,9 +12,8 @@ const Home = () => {
       <h3 className="font-DM text-xl xl:text-3xl pl-1 py-4">Sponsored by</h3>
 
       <SponsorLogo></SponsorLogo>
-
       <About></About>
-
+      <Services></Services>
       <OfferCard></OfferCard>
     </>
   );
