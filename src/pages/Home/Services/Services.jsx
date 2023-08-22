@@ -18,7 +18,7 @@ const Services = () => {
       </div>
 
       <div className="xl:w-1/2 mx-auto">
-        <video autoPlay loop className="">
+        <video autoPlay loop muted>
           <source src={video} type="video/mp4" />
         </video>
       </div>

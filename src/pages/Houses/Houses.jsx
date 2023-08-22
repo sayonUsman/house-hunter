@@ -107,7 +107,7 @@ const Houses = () => {
 
   return (
     <>
-      <video autoPlay loop className="mb-12 md:mb-16 lg:mb-20">
+      <video autoPlay loop muted className="mb-12 md:mb-16 lg:mb-20">
         <source src={review} type="video/mp4" />
       </video>
 
