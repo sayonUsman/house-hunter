@@ -1,6 +1,7 @@
 import About from "./About/About";
 import Banner from "./Banner/Banner";
 import OfferCard from "./OfferCard/OfferCard";
+import PremiumServices from "./PremiumServices/PremiumServices";
 import Services from "./Services/Services";
 import SponsorLogo from "./SponsorLogo/SponsorLogo";
 
@@ -14,6 +15,7 @@ const Home = () => {
       <SponsorLogo></SponsorLogo>
       <About></About>
       <Services></Services>
+      <PremiumServices></PremiumServices>
       <OfferCard></OfferCard>
     </>
   );
