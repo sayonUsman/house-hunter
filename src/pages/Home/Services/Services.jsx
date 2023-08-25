@@ -2,7 +2,7 @@ import video from "../../../assets/services-section-video.mp4";
 
 const Services = () => {
   return (
-    <div className="flex flex-col xl:flex-row-reverse class glass mt-9">
+    <div className="flex flex-col xl:flex-row-reverse glass mt-9">
       <div className="xl:w-1/2 text-justify px-3 xl:px-0 xl:pl-6 xl:pr-3 xl:my-auto">
         <h3 className="font-DM text-xl xl:text-3xl text-center pt-3 pb-1 xl:pt-0 xl:pb-3">
           What We Provide

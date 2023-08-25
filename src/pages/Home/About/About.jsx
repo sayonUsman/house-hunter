@@ -2,7 +2,7 @@ import img from "../../../assets/about-section-img.jpg";
 
 const About = () => {
   return (
-    <div className="flex flex-col xl:flex-row class glass mt-9">
+    <div className="flex flex-col xl:flex-row glass mt-9">
       <div className="xl:w-1/2 text-justify px-3 xl:px-0 xl:pl-2 xl:pr-7 xl:my-auto">
         <h3 className="font-DM text-xl xl:text-3xl text-center pt-3 pb-1 xl:pt-0 xl:pb-3">
           Who We Are
