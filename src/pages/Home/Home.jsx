@@ -5,6 +5,7 @@ import Services from "./Services/Services";
 import PremiumServices from "./PremiumServices/PremiumServices";
 import PropertyType from "./HouseType/HouseType";
 import OfferCard from "./OfferCard/OfferCard";
+import Statistics from "./Statistics/Statistics";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <About></About>
       <Services></Services>
       <PremiumServices></PremiumServices>
+      <Statistics></Statistics>
       <PropertyType></PropertyType>
       <OfferCard></OfferCard>
     </>
