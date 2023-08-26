@@ -7,7 +7,7 @@ import villa from "../../../assets/houseType/villa.jpg";
 
 const PropertyType = () => {
   return (
-    <div className="container mx-auto mt-7 lg:mt-9">
+    <div className="container mx-auto mt-10 lg:mt-11">
       <h1 className="font-DM text-xl sm:text-2xl lg:text-3xl text-center mb-3 lg:mb-4">
         What kind of Property You Want
       </h1>

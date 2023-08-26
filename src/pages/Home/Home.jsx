@@ -3,7 +3,7 @@ import SponsorLogo from "./SponsorLogo/SponsorLogo";
 import About from "./About/About";
 import Services from "./Services/Services";
 import PremiumServices from "./PremiumServices/PremiumServices";
-import PropertyType from "./HouseType/HouseType";
+import PropertyType from "./PropertyType/PropertyType";
 import OfferCard from "./OfferCard/OfferCard";
 import Statistics from "./Statistics/Statistics";
 
