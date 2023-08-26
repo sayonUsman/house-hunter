@@ -1,9 +1,10 @@
-import About from "./About/About";
 import Banner from "./Banner/Banner";
-import OfferCard from "./OfferCard/OfferCard";
-import PremiumServices from "./PremiumServices/PremiumServices";
-import Services from "./Services/Services";
 import SponsorLogo from "./SponsorLogo/SponsorLogo";
+import About from "./About/About";
+import Services from "./Services/Services";
+import PremiumServices from "./PremiumServices/PremiumServices";
+import PropertyType from "./HouseType/HouseType";
+import OfferCard from "./OfferCard/OfferCard";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <About></About>
       <Services></Services>
       <PremiumServices></PremiumServices>
+      <PropertyType></PropertyType>
       <OfferCard></OfferCard>
     </>
   );
