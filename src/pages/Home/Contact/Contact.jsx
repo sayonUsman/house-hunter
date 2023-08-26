@@ -49,7 +49,7 @@ const Contact = () => {
               <h6 className="font-medium">Chattogram, 4212</h6>
             </div>
 
-            <div className="mx-auto mb-6 text-center md:mb-0">
+            <div className="mx-auto mb-12 text-center md:mb-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
