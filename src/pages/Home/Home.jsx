@@ -6,6 +6,7 @@ import PremiumServices from "./PremiumServices/PremiumServices";
 import PropertyType from "./PropertyType/PropertyType";
 import OfferCard from "./OfferCard/OfferCard";
 import Statistics from "./Statistics/Statistics";
+import Contact from "./Contact/Contact";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       <Statistics></Statistics>
       <PropertyType></PropertyType>
       <OfferCard></OfferCard>
+      <Contact></Contact>
     </>
   );
 };
