@@ -1,7 +1,7 @@
 const Statistics = () => {
   return (
     <>
-      <h1 className="font-DM text-xl sm:text-2xl lg:text-3xl text-center mt-9 mb-3 lg:mb-4">
+      <h1 className="font-DM text-xl sm:text-2xl lg:text-3xl text-center mt-12 lg:mt-16 mb-3 lg:mb-4">
         Statistics
       </h1>
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const OfferCard = () => {
   return (
     <div
-      className="hero bg-fixed mt-7 sm:mt-12"
+      className="hero bg-fixed mt-16 lg:mt-20"
       style={{
         backgroundImage:
           "url(https://img.freepik.com/free-psd/modern-farmhouse-meadow-hill-generative-ai_587448-2232.jpg?w=1380&t=st=1692643118~exp=1692643718~hmac=bafdeeb3530858b0335504303671bdc1f5987979925852e1a6e794cd38bb4f67)",

@@ -7,7 +7,7 @@ import { MdOutlineSecurity } from "react-icons/Md";
 
 const PremiumServices = () => {
   return (
-    <div className="flex flex-col xl:flex-row glass mt-9">
+    <div className="flex flex-col xl:flex-row glass">
       <div className="xl:w-1/2 grid grid-cols-2 sm:px-7 py-3 xl:py-6">
         <div className="hero-content">
           <IconContext.Provider value={{ size: "45px" }}>
