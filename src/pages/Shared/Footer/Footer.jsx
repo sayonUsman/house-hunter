@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div>
+    <div className="glass pb-4">
       <footer className="footer p-10 mt-5">
         <div>
           <span className="footer-title">Services</span>
@@ -65,6 +65,8 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+
+      <p className="text-center">Copyright © 2023 - All right reserved.</p>
     </div>
   );
 };
