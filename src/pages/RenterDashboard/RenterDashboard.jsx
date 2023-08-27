@@ -103,7 +103,7 @@ const RenterDashboard = () => {
 
       {bookedHouses && (
         <dialog id="profile" className="modal modal-bottom sm:modal-middle">
-          <form method="dialog" className="modal-box">
+          <form method="dialog" className="modal-box bg-black bg-opacity-40">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
             </button>
