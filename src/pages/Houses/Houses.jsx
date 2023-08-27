@@ -19,6 +19,7 @@ const Houses = () => {
     fetch(`https://house-hunter.cyclic.app/houses-details`)
       .then((res) => res.json())
       .then((data) => {
+        data.reverse();
         setHouses(data);
       })
       .catch((error) => {
