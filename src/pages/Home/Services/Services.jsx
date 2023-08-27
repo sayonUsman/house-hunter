@@ -3,7 +3,12 @@ import video from "../../../assets/services-section-video.mp4";
 const Services = () => {
   return (
     <div className="flex flex-col xl:flex-row-reverse glass my-12 md:my-16">
-      <div className="xl:w-1/2 text-justify px-3 xl:px-0 xl:pl-6 xl:pr-3 xl:my-auto">
+      <div
+        className="xl:w-1/2 text-justify px-3 xl:px-0 xl:pl-6 xl:pr-3 xl:my-auto"
+        data-aos="fade-right"
+        data-aos-duration="2000"
+        data-aos-easing="ease-in-out"
+      >
         <h3 className="font-DM text-xl xl:text-3xl text-center pt-3 pb-1 xl:pt-0 xl:pb-3">
           What We Provide
         </h3>
@@ -17,7 +22,12 @@ const Services = () => {
         </p>
       </div>
 
-      <div className="xl:w-1/2 mx-auto">
+      <div
+        className="xl:w-1/2 mx-auto"
+        data-aos="fade-left"
+        data-aos-duration="2000"
+        data-aos-easing="ease-in-out"
+      >
         <video autoPlay loop muted>
           <source src={video} type="video/mp4" />
         </video>

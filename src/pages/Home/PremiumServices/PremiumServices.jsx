@@ -8,7 +8,12 @@ import { MdOutlineSecurity } from "react-icons/Md";
 const PremiumServices = () => {
   return (
     <div className="flex flex-col xl:flex-row glass">
-      <div className="xl:w-1/2 grid grid-cols-2 sm:px-7 py-3 xl:py-6">
+      <div
+        className="xl:w-1/2 grid grid-cols-2 sm:px-7 py-3 xl:py-6"
+        data-aos="fade-right"
+        data-aos-duration="2000"
+        data-aos-easing="ease-in-out"
+      >
         <div className="hero-content">
           <IconContext.Provider value={{ size: "45px" }}>
             <BiSupport></BiSupport>
@@ -42,7 +47,12 @@ const PremiumServices = () => {
         </div>
       </div>
 
-      <div className="xl:w-1/2 mx-auto">
+      <div
+        className="xl:w-1/2 mx-auto"
+        data-aos="fade-left"
+        data-aos-duration="2000"
+        data-aos-easing="ease-in-out"
+      >
         <video autoPlay loop muted>
           <source src={video} type="video/mp4" />
         </video>

@@ -5,7 +5,12 @@ const Contact = () => {
         Get in Touch
       </h1>
 
-      <div className="container px-6 md:px-12">
+      <div
+        className="container px-6 md:px-12"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+        data-aos-easing="ease-in-out"
+      >
         <div className="block rounded-lg bg-[hsla(0,0%,100%,0.7)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0.7)] dark:shadow-black/20 md:py-16 md:px-12 backdrop-blur-[30px]">
           <div className="mb-12 grid gap-x-6 md:grid-cols-2 lg:grid-cols-4">
             <div className="mx-auto mb-12 text-center lg:mb-0">

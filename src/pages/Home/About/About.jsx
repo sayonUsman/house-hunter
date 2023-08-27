@@ -3,7 +3,12 @@ import img from "../../../assets/about-section-img.jpg";
 const About = () => {
   return (
     <div className="flex flex-col xl:flex-row glass mt-12 md:mt-16 xl:mt-20">
-      <div className="xl:w-1/2 text-justify px-3 xl:px-0 xl:pl-2 xl:pr-7 xl:my-auto">
+      <div
+        className="xl:w-1/2 text-justify px-3 xl:px-0 xl:pl-2 xl:pr-7 xl:my-auto"
+        data-aos="fade-right"
+        data-aos-duration="2000"
+        data-aos-easing="ease-in-out"
+      >
         <h3 className="font-DM text-xl xl:text-3xl text-center pt-3 pb-1 xl:pt-0 xl:pb-3">
           Who We Are
         </h3>
@@ -30,7 +35,12 @@ const About = () => {
         </p>
       </div>
 
-      <div className="xl:w-1/2 mx-auto">
+      <div
+        className="xl:w-1/2 mx-auto"
+        data-aos="fade-left"
+        data-aos-duration="2000"
+        data-aos-easing="ease-in-out"
+      >
         <img src={img} alt="A Image" />
       </div>
     </div>
