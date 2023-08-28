@@ -296,7 +296,7 @@ const AddHouse = () => {
                   type="submit"
                   id="submit"
                   value="Add House"
-                  className="w-48 btn rounded-md bg-[#2a303c] text-white border border-white"
+                  className="w-48 btn rounded-md bg-[#2a303c] text-white border border-white hover:bg-black hover:bg-opacity-70 hover:border-none"
                 />
               </div>
             </div>

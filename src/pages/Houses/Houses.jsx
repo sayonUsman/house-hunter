@@ -138,14 +138,14 @@ const Houses = () => {
 
                     <div className="card-actions justify-end mt-7">
                       <button
-                        className="btn rounded-md bg-[#2a303c] text-white border border-white"
+                        className="btn rounded-md bg-[#2a303c] text-white border border-white hover:bg-black hover:bg-opacity-70 hover:border-none"
                         onClick={() => handleViewDetails(house._id)}
                       >
                         View Details
                       </button>
 
                       <button
-                        className="btn rounded-md bg-[#2a303c] text-white boder border-white ml-3"
+                        className="btn rounded-md bg-[#2a303c] text-white boder border-white ml-3 hover:bg-black hover:bg-opacity-70 hover:border-none"
                         onClick={() => handleBooking(house)}
                       >
                         Book Now

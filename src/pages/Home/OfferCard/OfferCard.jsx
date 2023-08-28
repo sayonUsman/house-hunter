@@ -18,7 +18,7 @@ const OfferCard = () => {
 
           <Link
             to="/houses"
-            className="btn rounded-sm font-DM bg-white text-black hover:text-white border-none mt-4 xl:mt-5"
+            className="btn rounded-sm bg-white text-black hover:bg-[#2a303c] hover:text-white border-none mt-4 xl:mt-5"
           >
             Book Now
           </Link>

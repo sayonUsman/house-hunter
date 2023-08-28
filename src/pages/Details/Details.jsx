@@ -84,7 +84,7 @@ const Details = () => {
 
               <div className="card-actions justify-end mt-7">
                 <button
-                  className="btn rounded-md bg-[#2a303c] text-white border border-white ml-3"
+                  className="btn rounded-md bg-[#2a303c] text-white border border-white ml-3 hover:bg-black hover:bg-opacity-70 hover:border-none"
                   onClick={() => handleBooking(details[0])}
                 >
                   Book Now

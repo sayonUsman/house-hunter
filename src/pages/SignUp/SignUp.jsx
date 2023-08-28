@@ -196,7 +196,7 @@ const SignUp = () => {
                 <input
                   type="submit"
                   value="Sign Up"
-                  className="btn rounded-md bg-[#2a303c] text-white border-none"
+                  className="btn rounded-md bg-[#2a303c] text-white border-none hover:bg-black hover:bg-opacity-70"
                 />
               </div>
             </form>
