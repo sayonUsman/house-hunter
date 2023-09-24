@@ -189,7 +189,7 @@ const Houses = () => {
           <div className="flex justify-center my-3 xl:my-7">
             <div className="join">
               <button
-                className="join-item btn bg-black text-white"
+                className="join-item btn bg-black text-white border-none hover:bg-opacity-10 dark:hover:bg-opacity-40"
                 onClick={decreasePageNumber}
               >
                 Previous
@@ -199,7 +199,7 @@ const Houses = () => {
                 return (
                   <button
                     key={i}
-                    className={`join-item btn bg-black text-white hover:text-white ${
+                    className={`join-item btn bg-black text-white border-none hover:bg-opacity-10 dark:hover:bg-opacity-40 ${
                       pageNumber === i + 1 ? "active" : ""
                     }`}
                     onClick={() => handleSelectedPage(i + 1)}
@@ -210,7 +210,7 @@ const Houses = () => {
               })}
 
               <button
-                className="join-item btn bg-black text-white"
+                className="join-item btn bg-black text-white border-none hover:bg-opacity-10 dark:hover:bg-opacity-40"
                 onClick={increasePageNumber}
               >
                 Next
